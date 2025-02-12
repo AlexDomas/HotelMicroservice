@@ -1,15 +1,18 @@
 package com.gpsolutions.domas.hotelmicroservice.service.impl;
 
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelDetailResponseDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelRequestDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelSummaryResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelDetailResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.request.HotelRequestDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelSummaryResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.UpdatedHistogramResponseDTO;
 import com.gpsolutions.domas.hotelmicroservice.entity.Hotel;
 import com.gpsolutions.domas.hotelmicroservice.exception.HotelNotFoundException;
+import com.gpsolutions.domas.hotelmicroservice.exception.NoSuchParameterFoundException;
 import com.gpsolutions.domas.hotelmicroservice.filter.HotelFilter;
 import com.gpsolutions.domas.hotelmicroservice.mapper.HotelMapper;
 import com.gpsolutions.domas.hotelmicroservice.repository.HotelRepository;
 import com.gpsolutions.domas.hotelmicroservice.service.HotelService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -70,10 +74,9 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Map<String, Integer> getHistogram(String parameter) {
+    public UpdatedHistogramResponseDTO getHistogram(String parameter) {
         List<Hotel> hotels = hotelRepository.findAll();
         Map<String, Integer> histogram = new HashMap<>();
-
         for (Hotel hotel : hotels) {
             switch (parameter) {
                 case "brand":
@@ -89,10 +92,10 @@ public class HotelServiceImpl implements HotelService {
                     hotel.getAmenities().forEach(amenity -> updateHistogram(histogram, amenity));
                     break;
                 default:
-                    throw new IllegalArgumentException("Invalid parameter: " + parameter);
+                    throw new NoSuchParameterFoundException("Invalid parameter: " + parameter);
             }
         }
-        return histogram;
+        return new UpdatedHistogramResponseDTO(histogram);
     }
 
     private void updateHistogram(Map<String, Integer> histogram, String key) {

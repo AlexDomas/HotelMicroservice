@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-hotel-amenity
+      author: AlexDomas
+      changes:
+        - createTable:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  type: serial
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amenities
+                  type: varchar(150)
+                  constraints:
+                    nullable: false

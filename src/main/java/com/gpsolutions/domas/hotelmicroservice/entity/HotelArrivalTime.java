@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "arrival_hotel_time")
-public class ArrivalHotelTime extends BaseEntity{
+@Table(name = "hotel_arrival_time")
+public class HotelArrivalTime extends BaseEntity{
 
     @Column(name = "check_in")
     private String checkIn;

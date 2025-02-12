@@ -1,11 +1,11 @@
 package com.gpsolutions.domas.hotelmicroservice.service;
 
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelDetailResponseDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelRequestDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelSummaryResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelDetailResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.request.HotelRequestDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelSummaryResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.UpdatedHistogramResponseDTO;
 
 import java.util.List;
-import java.util.Map;
 
 public interface HotelService {
 
@@ -19,6 +19,6 @@ public interface HotelService {
 
     HotelDetailResponseDTO addAmenitiesToHotel(Long id, List<String> amenities);
 
-    Map<String, Integer> getHistogram(String parameter);
+    UpdatedHistogramResponseDTO getHistogram(String parameter);
 
 }

@@ -1,21 +1,29 @@
 package com.gpsolutions.domas.hotelmicroservice.mapper;
 
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelDetailResponseDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelRequestDTO;
-import com.gpsolutions.domas.hotelmicroservice.dto.HotelSummaryResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelDetailResponseDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.request.HotelRequestDTO;
+import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelSummaryResponseDTO;
 import com.gpsolutions.domas.hotelmicroservice.entity.Hotel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@RequiredArgsConstructor
 @Component
 public class HotelMapper {
+
+    private final HotelAddressMapper hotelAddressMapper;
+
+    private final HotelContactMapper hotelContactMapper;
+
+    private final HotelArrivalTimeMapper hotelArrivalTimeMapper;
 
     public Hotel mapToHotel(HotelRequestDTO hotelRequestDTO) {
         return new Hotel(hotelRequestDTO.getName(),
                 hotelRequestDTO.getDescription(),
                 hotelRequestDTO.getBrand(),
-                hotelRequestDTO.getAddress(),
-                hotelRequestDTO.getContact(),
-                hotelRequestDTO.getArrivalTime(),
+                hotelAddressMapper.mapToHotelAddress(hotelRequestDTO.getAddress()),
+                hotelContactMapper.maptoHotelContact(hotelRequestDTO.getContact()),
+                hotelArrivalTimeMapper.mapToHotelArrivalTime(hotelRequestDTO.getArrivalTime()),
                 hotelRequestDTO.getAmenities()
         );
     }
@@ -41,9 +49,9 @@ public class HotelMapper {
                 hotel.getName(),
                 hotel.getDescription(),
                 hotel.getBrand(),
-                hotel.getAddress(),
-                hotel.getContact(),
-                hotel.getArrivalTime(),
+                hotelAddressMapper.mapToHotelAddressDTO(hotel.getAddress()),
+                hotelContactMapper.mapToHotelContactDTO(hotel.getContact()),
+                hotelArrivalTimeMapper.mapToHotelArrivalTimeDTO(hotel.getArrivalTime()),
                 hotel.getAmenities()
         );
     }

@@ -1,6 +1,7 @@
 package com.gpsolutions.domas.hotelmicroservice.advice;
 
 import com.gpsolutions.domas.hotelmicroservice.exception.HotelNotFoundException;
+import com.gpsolutions.domas.hotelmicroservice.exception.NoSuchParameterFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,12 @@ public class HotelRestControllerAdvice {
     public ResponseEntity<String> handleHotelNotFoundException(final HotelNotFoundException e) {
         log.error("An exception occurred! ", e);
         return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(NoSuchParameterFoundException.class)
+    public ResponseEntity<String> handleNoSuchParameterFoundException(final NoSuchParameterFoundException e) {
+        log.error("An exception occurred! ", e);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
 }

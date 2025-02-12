@@ -1,4 +1,4 @@
-package com.gpsolutions.domas.hotelmicroservice.dto;
+package com.gpsolutions.domas.hotelmicroservice.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

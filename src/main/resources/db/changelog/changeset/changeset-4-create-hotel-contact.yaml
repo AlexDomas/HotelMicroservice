@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-hotel-contact
+      author: AlexDomas
+      changes:
+        - createTable:
+            tableName: hotel_contact
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: phone
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

@@ -35,9 +35,9 @@ public class Hotel extends BaseEntity {
 
     @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinColumn(name = "arrival_time_id")
-    private ArrivalHotelTime arrivalTime;
+    private HotelArrivalTime arrivalTime;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     private List<String> amenities;
 
 }
