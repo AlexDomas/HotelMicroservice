@@ -34,19 +34,24 @@ Endpoint which helps us to get information about transactions.
 Api for getting all hotels (method GET) - 
 http://localhost:8092/property-view/hotels
 
-Api for getting the hotel by id - 
+Api for getting the hotel by id -
+
 http://localhost:8092/property-view/hotels/{id}
 
 Api for searching hotels by parameter (name, brand, city, county, amenities) - 
+
 http://localhost:8092/property-view/hotels/search?{parameter}={value}
 
 Api for getting histogram by parameter (brand, city, county, amenities) -
+
 http://localhost:8092/property-view/hotels/histogram/{param}
 
-Add amenities to some hotel (POST method)
+Add amenities to some hotel (POST method) -
+
 http://localhost:8092/property-view/hotels/{id}/amenities
 
-Add a new hotel (POST method)
+Add a new hotel (POST method) - 
+
 http://localhost:8092/property-view/hotels
 
 
