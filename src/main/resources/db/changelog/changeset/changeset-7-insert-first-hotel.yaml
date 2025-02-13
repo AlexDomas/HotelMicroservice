@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: AlexDomas
+      changes:
+        - insert:
+            tableName: hotel_address
+            columns:
+              - column:
+                  name: house_number
+                  valueNumeric: 12
+              - column:
+                  name: street
+                  value: 123 Sunset Blvd
+              - column:
+                  name: city
+                  value: Minsk
+              - column:
+                  name: county
+                  value: Belarus
+              - column:
+                  name: post_code
+                  value: 223003
+
+        - insert:
+            tableName: hotel_contact
+            columns:
+              - column:
+                  name: phone
+                  value: +375 33 333-33-33
+              - column:
+                  name: email
+                  value: info@hotelcalifornia.com
+
+        - insert:
+            tableName: hotel_arrival_time
+            columns:
+              - column:
+                  name: check_in
+                  value: 15:00
+              - column:
+                  name: check_out
+                  value: 11:00
+
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: Hotel California
+              - column:
+                  name: description
+                  value: A lovely place.
+              - column:
+                  name: brand
+                  value: California Brand
+              - column:
+                  name: address_id
+                  valueNumeric: 1
+              - column:
+                  name: contact_id
+                  valueNumeric: 1
+              - column:
+                  name: arrival_time_id
+                  valueNumeric: 1
+
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenities
+                  value: Free WiFi
+
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenities
+                  value: Pool

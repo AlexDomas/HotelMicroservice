@@ -8,7 +8,6 @@ import com.gpsolutions.domas.hotelmicroservice.dto.request.HotelRequestDTO;
 import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelDetailResponseDTO;
 import com.gpsolutions.domas.hotelmicroservice.dto.response.HotelSummaryResponseDTO;
 import com.gpsolutions.domas.hotelmicroservice.dto.response.UpdatedHistogramResponseDTO;
-import com.gpsolutions.domas.hotelmicroservice.entity.Hotel;
 import com.gpsolutions.domas.hotelmicroservice.service.HotelService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +21,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 

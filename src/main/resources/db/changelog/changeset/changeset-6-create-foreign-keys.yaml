@@ -45,6 +45,7 @@ databaseChangeLog:
             referencedTableName: hotel_contact
             referencedColumnNames: id
             constraintName: hotel_contact_FK
+
         - addForeignKeyConstraint:
             baseTableName: hotel_amenities
             baseColumnNames: hotel_id
