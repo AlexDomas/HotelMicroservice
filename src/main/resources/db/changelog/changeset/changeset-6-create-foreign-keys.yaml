@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-foreign-keys
+      author: AlexDomas
+      changes:
+        - addColumn:
+            tableName: hotel
+            columns:
+              - column:
+                  name: address_id
+                  type: serial
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: hotel
+            baseColumnNames: address_id
+            referencedTableName: hotel_address
+            referencedColumnNames: id
+            constraintName: hotel_address_FK
+        - addColumn:
+            tableName: hotel
+            columns:
+              - column:
+                  name: arrival_time_id
+                  type: serial
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: hotel
+            baseColumnNames: arrival_time_id
+            referencedTableName: hotel_arrival_time
+            referencedColumnNames: id
+            constraintName: hotel_arrival_time_FK
+        - addColumn:
+            tableName: hotel
+            columns:
+              - column:
+                  name: contact_id
+                  type: serial
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: hotel
+            baseColumnNames: contact_id
+            referencedTableName: hotel_contact
+            referencedColumnNames: id
+            constraintName: hotel_contact_FK
+
+        - addForeignKeyConstraint:
+            baseTableName: hotel_amenities
+            baseColumnNames: hotel_id
+            referencedTableName: hotel
+            referencedColumnNames: id
+            constraintName: hotel_id_FK
+

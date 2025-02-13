@@ -14,17 +14,13 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "hotel_address")
-public class HotelAddress extends BaseEntity {
+@Table(name = "hotel_arrival_time")
+public class HotelArrivalTime extends BaseEntity{
 
-    private int houseNumber;
+    @Column(name = "check_in")
+    private String checkIn;
 
-    private String street;
-
-    private String city;
-
-    private String county;
-
-    private String postCode;
+    @Column(name = "check_out")
+    private String checkOut;
 
 }

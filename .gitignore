@@ -24,7 +24,11 @@ target/
 /nbbuild/
 /dist/
 /nbdist/
+/data/
+/.gitattributes/
+/.gitignore/
 /.nb-gradle/
+/app.log/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
