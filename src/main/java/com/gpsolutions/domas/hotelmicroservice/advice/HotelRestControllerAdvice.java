@@ -15,7 +15,7 @@ public class HotelRestControllerAdvice {
     @ExceptionHandler(HotelNotFoundException.class)
     public ResponseEntity<String> handleHotelNotFoundException(final HotelNotFoundException e) {
         log.error("An exception occurred! ", e);
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(NoSuchParameterFoundException.class)

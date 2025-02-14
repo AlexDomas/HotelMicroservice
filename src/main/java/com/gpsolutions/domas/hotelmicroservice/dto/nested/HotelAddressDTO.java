@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 
 import static com.gpsolutions.domas.hotelmicroservice.constant.MessageErrorHotelConstant.*;
 

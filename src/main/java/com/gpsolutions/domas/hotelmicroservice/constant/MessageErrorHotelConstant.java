@@ -1,10 +1,5 @@
 package com.gpsolutions.domas.hotelmicroservice.constant;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
-
 public class MessageErrorHotelConstant {
 
     public static final String MESSAGE_ERROR_HOTEL_FIELD_NOT_NULL = "The name of hotel can't be null";
